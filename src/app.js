@@ -1,19 +1,29 @@
 const style = require('./style.css');
+import {
+  json
+} from 'd3-request';
+import {
+  select,
+  selectAll
+} from 'd3-selection';
+import {
+  geoPath,
+  geoEquirectangular
+} from 'd3-geo';
 
-const width = 1000,
-  height = 425;
+const width = 1000;
+const height = 425;
 
-const path = d3.geoPath()
-  .projection(d3.geoEquirectangular());
+const path = geoPath()
+  .projection(geoEquirectangular());
 
-const svg = d3
-  .select('#my-map')
+const svg = select('#my-map')
   .append('svg')
   .attr('width', width)
   .attr('height', height);
 
-d3.json('./globe.geo.json', (json) => {
-  countriesGroup = svg
+json('./globe.geo.json', (json) => {
+  const countriesGroup = svg
     .append('g')
     .attr('id', 'map');
 
@@ -24,7 +34,7 @@ d3.json('./globe.geo.json', (json) => {
     .attr('width', width)
     .attr('height', height);
 
-  countries = countriesGroup
+  const countries = countriesGroup
     .selectAll('path')
     .data(json.features)
     .enter()
