@@ -2,7 +2,7 @@
 
 This is a simple base exmaple to create a plain map with d3 created with the help of [this great tutorial by Andy Barefoot](https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee). Source files are located in the `src` and are bundled in a `dist` folder with webpack.
 
-###Development
+### Development
 
 - intall dependencies: `npm install`
 - build: `npm run build`
